@@ -64,7 +64,7 @@ else:
 
 
 setup(
-    name='libact',
+    name='libact_win',
     version='0.1.3',
     description='Pool-based active learning in Python',
     long_description=open('README.md').read(),
