@@ -19,6 +19,8 @@ install:
   - "call %CONDA_INSTALL_LOCN%\\Scripts\\activate.bat"
   - "conda config --add channels conda-forge --force"
   - "conda install -y lapack"
+  - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+  - set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
 
 build: off
 
