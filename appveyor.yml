@@ -1,6 +1,6 @@
 os: Visual Studio 2017
 environment:
-
+  MSYSTEM: MINGW64
   matrix:
 
     # For Python versions available on Appveyor, see
@@ -15,6 +15,11 @@ environment:
 
 install:
   # We need wheel installed to build wheels
+  - set PATH=%PYTHON_PATH%;%PYTHON_PATH%\Scripts;C:\msys64\usr\bin;%PATH%
+  - bash -lc ""
+  - bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
+  - bash -lc "rm -f /mingw64/etc/gdbinit"
+  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib}"
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
   - "call %CONDA_INSTALL_LOCN%\\Scripts\\activate.bat"
@@ -35,6 +40,7 @@ test_script:
   # Note that you must use the environment variable %PYTHON% to refer to
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python version you want to use on PATH.
+  - set PATH=C:\msys64\mingw64\bin;%PATH%
   - "%PYTHON%\\python.exe setup.py test"
 
 after_test:
@@ -42,6 +48,7 @@ after_test:
   # Again, you only need build.cmd if you're building C extensions for
   # 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct
   # interpreter
+  - set PATH=C:\msys64\mingw64\bin;%PATH%
   - "%PYTHON%\\python.exe setup.py bdist_wheel"
 
 artifacts:
