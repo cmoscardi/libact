@@ -40,6 +40,9 @@ test_script:
   # Note that you must use the environment variable %PYTHON% to refer to
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python version you want to use on PATH.
+  - set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
+  - set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
+  - set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
   - set PATH=C:\msys64\mingw64\bin;%PATH%
   - "%PYTHON%\\python.exe setup.py test"
 
