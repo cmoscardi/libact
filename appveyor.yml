@@ -19,16 +19,16 @@ install:
   - bash -lc ""
   - bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
   - bash -lc "rm -f /mingw64/etc/gdbinit"
-  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack,lapacke}"
+  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack}"
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
-  - "call %CONDA_INSTALL_LOCN%\\Scripts\\activate.bat"
-  - "conda config --add channels conda-forge --force"
-  - "conda install -y lapack"
+  #- "call %CONDA_INSTALL_LOCN%\\Scripts\\activate.bat"
+  #- "conda config --add channels conda-forge --force"
+  #- "conda install -y lapack"
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
-  - set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
-  - set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
-  - set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
+  #- set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
+  #- set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
+  #- set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
 
 build: off
 
@@ -40,9 +40,9 @@ test_script:
   # Note that you must use the environment variable %PYTHON% to refer to
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python version you want to use on PATH.
-  - set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
-  - set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
-  - set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
+  #- set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
+  #- set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
+  #- set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
   - set "PATH=C:\msys64\mingw64\bin;%PATH%"
   - "%PYTHON%\\python.exe setup.py test"
 
