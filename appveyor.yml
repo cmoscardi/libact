@@ -31,6 +31,8 @@ install:
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapack.lib" -FileName "lib\liblapack.lib"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/libblas.dll" -FileName "lib\libblas.dll"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/libblas.lib" -FileName "lib\libblas.lib" 
+  - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/libraries/CLAPACK/lapack.lib" -FileName "lib\lapack.lib"
+  - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/libraries/CLAPACK/blas.lib" -FileName "lib\blas.lib"
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/libraries/CLAPACK/libf2c.lib" -FileName "lib\libf2c.lib"
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/include/clapack.h" -FileName "include\clapack.h"
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/include/f2c.h" -FileName "include\f2c.h"
