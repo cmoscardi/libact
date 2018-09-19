@@ -23,12 +23,14 @@ else:
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/local/opt/openblas/include'])
         extra_compile_args = ['-std=c11']
+        variance_reduction = ["libact/query_strategies/src/variance_reduction/variance_reduction.c"]
     elif sys.platform == 'win32':
         print("Platform Detection: Windows. Link to libpacke?")
         extra_link_args = ['-llapacke -llapack -lblas']
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/include/lapacke'])
         extra_compile_args = ['/TP /std:c++17']
+        variance_reduction = ["libact/query_strategies/src/variance_reduction/variance_reduction.c /TP /std:c++17"]
     else:
         # assume linux otherwise, unless we support Windows in the future...
         print("Platform Detection: Linux. Link to liblapacke...")
@@ -36,11 +38,12 @@ else:
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/include/lapacke'])
         extra_compile_args = ['-std=c11']
+        variance_reduction = ["libact/query_strategies/src/variance_reduction/variance_reduction.c"]
         
     extensions = cythonize([
         Extension(
             "libact.query_strategies._variance_reduction",
-            ["libact/query_strategies/src/variance_reduction/variance_reduction.c"],
+            variance_reduction,
             extra_link_args=extra_link_args,
             extra_compile_args=extra_compile_args,
             include_dirs=include_dirs,
