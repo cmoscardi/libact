@@ -4,8 +4,7 @@
 #include <numpy/arrayobject.h>
 //#include <lapacke.h>
 extern "C" {
-  #include <f2c.h>
-  #include <clapack.h>
+  #include <lapacke.h>
 }
 
 /* DGESVD prototype */
