@@ -86,12 +86,12 @@ void pinv(double** X, int labs, int dims){
 
      /* Query and allocate the optimal workspace */
     lwork = -1;
-    lapacke_dgesvd("All", "All", &m, &n, a, &lda, s, u, &ldu, vt, &ldvt, &wkopt, &lwork,
+    LAPACKE_dgesvd("All", "All", &m, &n, a, &lda, s, u, &ldu, vt, &ldvt, &wkopt, &lwork,
         &info);
     lwork = (int)wkopt;
     work = (double*)malloc( lwork*sizeof(double) );
     /* Compute SVD */
-    lapacke_dgesvd("All", "All", &m, &n, a, &lda, s, u, &ldu, vt, &ldvt, work, &lwork,
+    LAPACKE_dgesvd("All", "All", &m, &n, a, &lda, s, u, &ldu, vt, &ldvt, work, &lwork,
         &info);
     /* Check for convergence  */
     if(info > 0) {
