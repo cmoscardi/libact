@@ -2,12 +2,6 @@
 
 #include <Python.h>
 #include <numpy/arrayobject.h>
-
-extern "C" {
-  #include <f2c.h>
-  #include <clapack.h>
-}
-
 #include <lapacke.h>
 
 /* DGESVD prototype */
