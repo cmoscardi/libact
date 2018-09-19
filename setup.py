@@ -28,7 +28,7 @@ else:
         extra_link_args = ['-llapacke -llapack -lblas']
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/include/lapacke'])
-        extra_compile_args = ['/TP']
+        extra_compile_args = ['/TP /std:c++17']
     else:
         # assume linux otherwise, unless we support Windows in the future...
         print("Platform Detection: Linux. Link to liblapacke...")
