@@ -20,7 +20,14 @@ install:
   - bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
   - bash -lc "rm -f /mingw64/etc/gdbinit"
   - bash -lc "pacman -Ss lapack"
-  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack,openblas} "
+  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack,openblas}"
+  - mkdir "lib"
+  - mkdir "include"
+  - echo %cd%
+  - dir *.*
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.dll" -FileName "lib\liblapacke.dll"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.lib" -FileName "lib\liblapacke.lib"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/include/lapacke.h" -FileName "include\lapacke.h"
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
   #- "call %CONDA_INSTALL_LOCN%\\Scripts\\activate.bat"
