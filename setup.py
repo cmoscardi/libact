@@ -22,19 +22,27 @@ else:
         extra_link_args = ['-L/usr/local/opt/openblas/lib -lopenblas']
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/local/opt/openblas/include'])
+        extra_compile_args = ['-std=c11']
+    elif sys.platform == 'win32':
+        print("Platform Detection: Windows. Link to libpacke?")
+        extra_link_args = ['-llapacke -llapack -lblas']
+        include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
+                        ['/usr/include/lapacke'])
+        extra_compile_args = ['/TP']
     else:
         # assume linux otherwise, unless we support Windows in the future...
         print("Platform Detection: Linux. Link to liblapacke...")
         extra_link_args = ['-llapacke -llapack -lblas']
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/include/lapacke'])
-
+        extra_compile_args = ['-std=c11']
+        
     extensions = cythonize([
         Extension(
             "libact.query_strategies._variance_reduction",
             ["libact/query_strategies/src/variance_reduction/variance_reduction.c"],
             extra_link_args=extra_link_args,
-            extra_compile_args=['-std=c11'],
+            extra_compile_args=extra_compile_args,
             include_dirs=include_dirs,
         ),
         Extension(
