@@ -47,6 +47,7 @@ else:
             extra_link_args=extra_link_args,
             extra_compile_args=extra_compile_args,
             include_dirs=include_dirs,
+            language="c++",
         ),
         Extension(
             "libact.query_strategies._hintsvm",
