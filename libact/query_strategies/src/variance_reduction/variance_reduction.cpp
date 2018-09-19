@@ -2,10 +2,10 @@
 
 #include <Python.h>
 #include <numpy/arrayobject.h>
-//#include <lapacke.h>
-extern "C" {
-  #include <lapacke.h>
-}
+#include <lapacke.h>
+// extern "C" {
+//   #include <lapacke.h>
+// }
 
 /* DGESVD prototype */
 
