@@ -9,9 +9,9 @@ extern "C" {
 }
 
 /* DGESVD prototype */
-extern void dgesvd_( char* jobu, char* jobvt, int* m, int* n, double* a,
+/*extern void dgesvd_( char* jobu, char* jobvt, int* m, int* n, double* a,
                     int* lda, double* s, double* u, int* ldu, double* vt, int* ldvt,
-                    double* work, int* lwork, int* info );
+                    double* work, int* lwork, int* info );*/
 
 double** An(double *pi, double *x, int labs, int dims);
 double** A(double **PI, double **X, int labs, int dims, int n_pool);
