@@ -16,17 +16,21 @@ environment:
 install:
   # We need wheel installed to build wheels
   - set PATH=%PYTHON_PATH%;%PYTHON_PATH%\Scripts;C:\msys64\usr\bin;%PATH%
-  - bash -lc ""
-  - bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
-  - bash -lc "rm -f /mingw64/etc/gdbinit"
-  - bash -lc "pacman -Ss lapack"
-  - bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack,openblas}"
+  #- bash -lc ""
+  #- bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
+  #- bash -lc "rm -f /mingw64/etc/gdbinit"
+  #- bash -lc "pacman -Ss lapack"
+  #- bash -lc "pacman --noconfirm -S mingw-w64-x86_64-{gcc,gcc-ada,gcc-fortran,gcc-libgfortran,gcc-objc,cmake,make,zlib,lapack,openblas}"
   - mkdir "lib"
   - mkdir "include"
   - echo "%cd%\include"
   - move "lapacke.h" "include\lapacke.h"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.dll" -FileName "lib\liblapacke.dll"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.lib" -FileName "lib\liblapacke.lib"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapack.dll" -FileName "lib\liblapack.dll"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapack.lib" -FileName "lib\liblapack.lib"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/libblas.dll" -FileName "lib\libblas.dll"
+  - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/libblas.lib" -FileName "lib\libblas.lib" 
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/libraries/CLAPACK/libf2c.lib" -FileName "lib\libf2c.lib"
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/include/clapack.h" -FileName "include\clapack.h"
   - ps: Start-FileDownload "http://icl.cs.utk.edu/lapack-for-windows/include/f2c.h" -FileName "include\f2c.h"
@@ -60,7 +64,7 @@ test_script:
   #- set "LIB=%CONDA_INSTALL_LOCN%\\Library\lib;%LIB%"
   #- set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
   #- set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
-  - set "PATH=C:\msys64\mingw64\bin;%PATH%"
+  #- set "PATH=C:\msys64\mingw64\bin;%PATH%"
   - "%PYTHON%\\python.exe setup.py test"
 
 after_test:
