@@ -7,13 +7,6 @@
 //   #include <lapacke.h>
 // }
 
-/* DGESVD prototype */
-extern "C" {
-    void dgesvd_(   char* , char* , lapack_int* , lapack_int* ,
-                    double* , lapack_int* , double* , double* ,
-                    lapack_int* , double* , lapack_int* , double* ,
-                    lapack_int* , lapack_int  )
-}
 
 double** An(double *pi, double *x, int labs, int dims);
 double** A(double **PI, double **X, int labs, int dims, int n_pool);
