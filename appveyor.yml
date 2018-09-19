@@ -24,7 +24,7 @@ install:
   - mkdir "lib"
   - mkdir "include"
   - echo "%cd%\include"
-  - move "lapacke.h" "lib\lapacke.h"
+  - move "lapacke.h" "include\lapacke.h"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.dll" -FileName "lib\liblapacke.dll"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.lib" -FileName "lib\liblapacke.lib"
   #- ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/include/lapacke.h" -FileName "include\lapacke.h"
