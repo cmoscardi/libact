@@ -75,7 +75,7 @@ double* matrix_mul(double* a, double* b, int m1, int n1, int m2, int n2){
 
 
 void pinv(double** X, int labs, int dims){
-    int m = labs*dims, n = labs*dims, lda = labs*dims, ldu = labs*dims, 
+    integer m = labs*dims, n = labs*dims, lda = labs*dims, ldu = labs*dims, 
         ldvt = labs*dims, lwork, info;
     double wkopt;
     double *work;
