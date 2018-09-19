@@ -5,8 +5,8 @@
 #include <lapacke.h>
 
 extern "C" {
-  #include <clapack.h>
   #include <f2c.h>
+  #include <clapack.h>
 }
 
 /* DGESVD prototype */
