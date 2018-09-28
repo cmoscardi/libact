@@ -26,7 +26,7 @@ else:
         variance_reduction = ["libact/query_strategies/src/variance_reduction/variance_reduction.c"]
     elif sys.platform == 'win32':
         print("Platform Detection: Windows. Link to libpacke?")
-        extra_link_args = ['/LIBPATH:lib']
+        extra_link_args = ['lib\libblas.lib', 'lib\liblapack.lib', 'lib\liblapacke.lib']
         include_dirs = (numpy.distutils.misc_util.get_numpy_include_dirs() +
                         ['/usr/include/lapacke'])
         extra_compile_args = ['/TP']
