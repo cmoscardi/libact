@@ -78,7 +78,7 @@ test_script:
   - "%PYTHON%\\python.exe setup.py build"
   - dir "%cd%\libact\query_strategies"
   - dir "%cd%\build
-  - set "PYTHONPATH=%cd%\build;%PYTHONPATH%"
+  - set "PYTHONPATH=%cd%\build\lib.win-amd64-3.6\libact\query_strategies;%PYTHONPATH%"
   - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
 
