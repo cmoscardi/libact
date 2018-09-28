@@ -75,6 +75,9 @@ test_script:
   #- set "CPATH=%CONDA_INSTALL_LOCN%\\Library\include;%CPATH%"
   #- set "INCLUDE=%CONDA_INSTALL_LOCN%\\Library\include;%INCLUDE%"
   #- set "PATH=C:\msys64\mingw64\bin;%PATH%"
+  - "%PYTHON%\\python.exe setup.py build"
+  - dir "%cd%\libact\query_strategies"
+  - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
 
 after_test:
