@@ -53,7 +53,7 @@ install:
   - set "LIB=%cd%\lib;%LIB%"
   - set "LIBPATH=%cd%\lib;%LIBPATH%"
   - set "PATH=%cd%\lib;%PATH%"
-  - set "PATH=%cd%\libact\query_strategies\variance_reduction;%PATH%"
+  - set "PATH=%cd%\libact\query_strategies\src\variance_reduction;%PATH%"
   - set "CPATH=%cd%\include;%CPATH%"
   - set "INCLUDE=%cd%\include;%INCLUDE%"
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
