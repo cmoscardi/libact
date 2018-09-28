@@ -54,6 +54,7 @@ install:
   - set "LIBPATH=%cd%\lib;%LIBPATH%"
   - set "PATH=%cd%\lib;%PATH%"
   - set "PATH=%cd%\libact\query_strategies;%PATH%"
+  - set "PYTHONPATH=%cd%\libact\query_strategies;%PYTHONPATH%"
   - dir "%cd%\libact\query_strategies"
   - set "CPATH=%cd%\include;%CPATH%"
   - set "INCLUDE=%cd%\include;%INCLUDE%"
