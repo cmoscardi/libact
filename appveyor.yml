@@ -62,7 +62,8 @@ install:
   - dir "%cd%\libact\query_strategies"
   - set "CPATH=%cd%\include;%CPATH%"
   - set "INCLUDE=%cd%\include;%INCLUDE%"
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+  #- call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - call "C:\program files(x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
 
 build: off
 
