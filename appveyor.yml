@@ -93,6 +93,11 @@ test_script:
   - where api-ms-win-crt-heap-l1-1-0.dll
   - where api-ms-win-crt-runtime-l1-1-0.dll
   - dumpbin /dependents "%cd%\lib\liblapack.dll"
+  - where libblas.dll
+  - where  KERNEL32.dll
+  - where  msvcrt.dll
+  - where  libgcc_s_seh_64-1.dll
+  - where  libgfortran_64-3.dll
   - set "PYTHONPATH=%cd%\build\lib.win-amd64-3.6\libact\query_strategies;%PYTHONPATH%"
   - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
