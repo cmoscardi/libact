@@ -18,7 +18,8 @@ class LogisticRegression(ProbabilisticModel):
     """
 
     def __init__(self, *args, **kwargs):
-        self.model = sklearn.linear_model.LogisticRegression(*args, **kwargs)
+        solver = kwargs.pop("solver") if "solver" in kwargs else "lbfgs"
+        self.model = sklearn.linear_model.LogisticRegression(*args, **kwargs, solver=solver)
 
     def train(self, dataset, *args, **kwargs):
         return self.model.fit(*(dataset.format_sklearn() + args), **kwargs)
