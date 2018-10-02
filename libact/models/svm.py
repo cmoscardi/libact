@@ -26,7 +26,8 @@ class SVM(ContinuousModel):
     """
 
     def __init__(self, *args, **kwargs):
-        self.model = sklearn.svm.SVC(*args, **kwargs)
+        gamma = kwargs.pop('gamma', 'auto')
+        self.model = sklearn.svm.SVC(*args, **kwargs, gamma=gamma)
         if self.model.decision_function_shape == 'ovr':
             self.decision_function_shape = 'ovr'
             # sklearn's ovr isn't real ovr
