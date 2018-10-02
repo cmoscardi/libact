@@ -31,6 +31,8 @@ install:
   - move "lapacke.h" "include\lapacke.h"
   - move "libgfortran_64-3.dll" "lib\libgfortran_64-3.dll"
   - move "libgcc_s_seh_64-1.dll" "lib\libgcc_s_seh_64-1.dll"
+  - move "libquadmath_64-0.dll" "lib\libquadmath_64-0.dll"
+
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.dll" -FileName "lib\liblapacke.dll"
   #- copy "lib\liblapacke.dll" "libact\query_strategies\liblapacke.dll"
   - ps: Start-FileDownload "https://icl.cs.utk.edu/lapack-for-windows/libraries/VisualStudio/3.7.0/Dynamic-MINGW/Win64/liblapacke.lib" -FileName "lib\liblapacke.lib"
