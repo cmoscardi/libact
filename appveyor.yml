@@ -84,6 +84,7 @@ test_script:
   - dir "%cd%\build\lib.win-amd64-3.6\libact\query_strategies"
   - dumpbin /dependents "%cd%\build\lib.win-amd64-3.6\libact\query_strategies\_variance_reduction.cp36-win_amd64.pyd"
   - where liblapack.dll
+  - where python
   - where python36.dll
   - where KERNEL32.dll
   - where VCRUNTIME140.dll
