@@ -16,6 +16,7 @@ environment:
 install:
   # We need wheel installed to build wheels
   - set PATH=%PYTHON_PATH%;%PYTHON_PATH%\Scripts;C:\msys64\usr\bin;%PATH%
+  - set PATH=C:\Python36-x64;%PATH%
   #- bash -lc ""
   #- bash -lc "pacman --noconfirm --needed -Sy bash pacman pacman-mirrors msys2-runtime msys2-runtime-devel"
   #- bash -lc "rm -f /mingw64/etc/gdbinit"
