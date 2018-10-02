@@ -83,6 +83,13 @@ test_script:
   - "%PYTHON%\\python.exe setup.py build"
   - dir "%cd%\build\lib.win-amd64-3.6\libact\query_strategies"
   - dumpbin /dependents "%cd%\build\lib.win-amd64-3.6\libact\query_strategies\_variance_reduction.cp36-win_amd64.pyd"
+  - where liblapack.dll
+  - where  python36.dll
+  - where  KERNEL32.dll
+  - where  VCRUNTIME140.dll
+  - where  api-ms-win-crt-stdio-l1-1-0.dll
+  - where  api-ms-win-crt-heap-l1-1-0.dll
+  - where  api-ms-win-crt-runtime-l1-1-0.dll
   - set "PYTHONPATH=%cd%\build\lib.win-amd64-3.6\libact\query_strategies;%PYTHONPATH%"
   - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
