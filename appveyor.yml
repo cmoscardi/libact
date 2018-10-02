@@ -99,8 +99,8 @@ test_script:
   - where libblas.dll
   - where  KERNEL32.dll
   - where  msvcrt.dll
-  - where  libgcc_s_seh_64-1.dll
-  - where  libgfortran_64-3.dll
+  # - where  libgcc_s_seh_64-1.dll
+  # - where  libgfortran_64-3.dll
   - set "PYTHONPATH=%cd%\build\lib.win-amd64-3.6\libact\query_strategies;%PYTHONPATH%"
   - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
