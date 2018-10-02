@@ -18,8 +18,9 @@ class LogisticRegression(ProbabilisticModel):
     """
 
     def __init__(self, *args, **kwargs):
-        solver = kwargs.pop("solver") if "solver" in kwargs else "lbfgs"
-        self.model = sklearn.linear_model.LogisticRegression(*args, **kwargs, solver=solver)
+        solver = kwargs.pop("solver", "lbfgs")
+        multi_class = kwargs.pop("multi_class", "auto")
+        self.model = sklearn.linear_model.LogisticRegression(*args, **kwargs, solver=solver, multi_class=multi_class)
 
     def train(self, dataset, *args, **kwargs):
         return self.model.fit(*(dataset.format_sklearn() + args), **kwargs)
