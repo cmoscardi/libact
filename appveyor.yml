@@ -104,6 +104,8 @@ test_script:
   - where  libgcc_s_seh_64-1.dll
   - where  libgfortran_64-3.dll
   - dumpbin /dependents "%cd%\lib\libblas.dll"
+  - dumpbin /dependents "%cd%\lib\libgfortran_64-3.dll"
+  - dumpbin /dependents "%cd%\lib\libgcc_s_seh_64-1.dll"
   - set "PYTHONPATH=%cd%\build\lib.win-amd64-3.6\libact\query_strategies;%PYTHONPATH%"
   - echo %PYTHONPATH%
   - "%PYTHON%\\python.exe setup.py test"
